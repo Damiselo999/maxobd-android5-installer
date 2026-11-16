@@ -1,0 +1,34 @@
+{
+  "package": "com.jiawei.maxobd",
+  "reference_date": "2026-11-16",
+  "certificate_sha256_observed": "6888cf4291a9ad3adba50160bd69fba7d322317a5566e01c081a953b9f9773eb",
+  "provenance": "Hashes de los componentes originales de copias XAPK aportadas por el usuario desde APKPure. No son una certificación independiente del editor.",
+  "profiles": [
+    {
+      "version_name": "1.0.30",
+      "version_code": 46,
+      "min_sdk": 21,
+      "abi": "arm64-v8a",
+      "density": "xxhdpi",
+      "validation": "Inicio, interfaz y búsqueda BLE probados en Lenovo TAB 2 A8-50F-YZ-A, Android 5.1/API22. Comunicación OBD pendiente.",
+      "sha256": {
+        "com.jiawei.maxobd.apk": "6218be5aafd945828d1d7be143ad47f1db48e17b60ace886f6ddfab1c7aea073",
+        "config.arm64_v8a.apk": "425a9924b36eb0a763ab28437bed7a529afde0b263c1fedaaf462f97d14b8b29",
+        "config.xxhdpi.apk": "b285c52b72fa34f2bd4d1ca4e69164af7edef0fc803549c5765244d101695d58"
+      }
+    },
+    {
+      "version_name": "1.0.29",
+      "version_code": 44,
+      "min_sdk": 21,
+      "abi": "armeabi-v7a",
+      "density": "hdpi",
+      "validation": "Solo inspección estática del XAPK y verificación de sus archivos. No se instaló ni se probó en un dispositivo.",
+      "sha256": {
+        "com.jiawei.maxobd.apk": "f1460f3d4ed90b28ab3bb3e32c71adf864be84ce031fdc0049a911cb50c61288",
+        "config.armeabi_v7a.apk": "9f00f5f1d03d8841ef38e966e1334157a5597aa0bf71602f04ecc370460ea803",
+        "config.hdpi.apk": "26c9791aa4205d443df43f6747d283a486e69e239de6999c66d580291f7a1e44"
+      }
+    }
+  ]
+}

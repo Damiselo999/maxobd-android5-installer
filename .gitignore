@@ -1,0 +1,14 @@
+# Los usuarios aportan su XAPK; no publicar aplicaciones o registros privados.
+*.apk
+*.xapk
+*.apks
+*.zip
+*.log
+logcat*.txt
+evidencia/
+diagnostico_dispositivo.txt
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.DS_Store
