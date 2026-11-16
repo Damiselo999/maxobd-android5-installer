@@ -1,10 +1,54 @@
-# MAXOBD en Android 5.0 o superior
+# MAXOBD en Android 5: instalación completa y paquetes por marca
+
+## Estado comprobado al 16 de noviembre de 2026
+
+El proyecto documenta la reparación del arranque y la recuperación de los paquetes desde sus servidores originales. Caso real: **Lenovo TAB 2 A8-50F-YZ-A, Android 5.1/API 22**. La instalación final quedó en **MAXOBD 1.1.01/código 57, armeabi-v7a + hdpi**.
+
+| Problema | Resultado |
+|---|---|
+| Recurso gráfico ausente al abrir 1.0.30 | Resuelto instalando juntos base, gráficos y bibliotecas |
+| «Descarga fallida» al obtener Nissan | Catálogo y archivos disponibles; se recuperaron y copiaron los 23 archivos originales |
+| Faltaban las demás marcas | **19 grupos, 2.875 archivos y 907.211.045 bytes** descargados y copiados |
+| Cierres posteriores durante el uso | Se registró un fallo interno JNI; **sigue pendiente**, no se corrigió copiando datos |
+
+Todos los originales se verificaron por tamaño, MD5 y SHA-256 en la computadora. En la tableta se comprobaron los **2.875 tamaños** y una muestra MD5 por grupo: **19/19 correctas**. La app abrió el menú Nissan y el usuario confirmó que funcionaba. No se probaron todas las marcas con vehículos reales.
+
+<img src="docs/capturas/nissan-paquete-reconocido.png" alt="Paquete Nissan reconocido" width="320">
+
+Documentación del progreso: [seguimiento](docs/seguimiento.md), [servidores](docs/servidores.md), [paquetes](docs/paquetes.md), [capturas](docs/evidencias.md) y [cambios](CHANGELOG.md).
+
+## Descargar y copiar los paquetes de las marcas
+
+[`paquetes_maxobd.py`](paquetes_maxobd.py) utiliza solo la biblioteca estándar de Python 3.9+. El [catálogo público](datos/catalogo-paquetes-2026-11-16.json) contiene las rutas oficiales, tamaños, MD5 y SHA-256 de los 2.875 archivos; el [inventario CSV](datos/grupos.csv) facilita consultar los grupos. Los [resultados del caso](datos/resultado-caso-2026-11-16.json) no contienen identificadores privados.
+
+```sh
+# Solo inventario, sin red ni ADB.
+python3 paquetes_maxobd.py
+
+# Un grupo; omite --marca para descargar todos.
+python3 paquetes_maxobd.py --marca nissan --descargar --destino datos-locales
+python3 paquetes_maxobd.py --descargar --destino datos-locales --hilos 8
+
+# Solo verificar los originales, sin red ni cambios.
+python3 paquetes_maxobd.py --verificar --destino datos-locales
+
+# Copiar a la versión probada 1.1.01; requiere un destino nuevo de respaldo.
+python3 paquetes_maxobd.py --copiar --destino datos-locales --respaldo respaldo-maxobd
+```
+
+En Windows usa `py -3` y, si hace falta, `--adb "C:\Android\platform-tools\adb.exe"`. Con varios dispositivos, añade `--serial SERIAL`. El copiador verifica los archivos, cierra MAXOBD, respalda sus **archivos externos**, copia únicamente los seleccionados y comprueba tamaños y una muestra por grupo. No inicia diagnósticos del vehículo. El respaldo no incluye cuentas, preferencias o bases privadas internas.
+
+Se incluye español donde existe, más archivos comunes. VAZ ofrece inglés y ruso; se conservan ambos. Toyota mantiene **NA/JP/EU** separadas para no sobrescribir binarios con nombres iguales. Los archivos grandes se descargan por bloques con verificación de rangos y reintentos contra los endpoints oficiales del mismo bucket.
+
+Los APK/XAPK y los 907 MB propietarios no se redistribuyen dentro de Git. Los metadatos y el descargador permiten obtener los archivos exactos desde el fabricante, sujetos a su disponibilidad. La licencia MIT cubre el código y la documentación propios, no el contenido de MAXOBD.
+
+## Reparación original del arranque
 
 Guía e instalador para corregir el cierre de MAXOBD provocado por una **instalación incompleta del XAPK**. Instala juntos el APK principal, los gráficos y las bibliotecas de la misma versión, conservando los datos de la aplicación.
 
 **Caso comprobado:** MAXOBD **1.0.30** abrió correctamente en una **Lenovo TAB 2 A8-50F-YZ-A con Android 5.1/API 22**, después de completar sus componentes. No fue necesario actualizar Android, desbloquear el bootloader, obtener root ni modificar el APK.
 
-Android **5.0/API 21 es el mínimo declarado por las versiones examinadas**; no se han probado todos los dispositivos ni todas las versiones posteriores de Android. Este proyecto no hace que una edición cuyo mínimo sea Android 7 funcione en Android 5. La comunicación con el escáner y el vehículo sigue pendiente de validación en el caso original.
+Android **5.0/API 21 es el mínimo declarado por los perfiles compatibles examinados**; la prueba real fue en Android 5.1. El conjunto 1.1.04 inspeccionado exige API 24/Android 7.0 y no se instaló. El seguimiento posterior con el vehículo está documentado arriba y no acredita estabilidad completa.
 
 ## Qué problema resuelve
 
@@ -55,6 +99,7 @@ En Windows cambia `python3` por `py -3`. Si ADB no está en PATH, usa `--adb "C:
 |---|---|---|---|
 | **1.0.30**, código 46 | Base + ARM64 + xxhdpi | 5.0 / API 21 | **Inicio, interfaz y búsqueda BLE probados en Android 5.1** |
 | 1.0.29, código 44 | Base + armeabi-v7a + hdpi | 5.0 / API 21 | Solo inspección estática; ejecución no probada |
+| **1.1.01**, código 57 | Base + armeabi-v7a + hdpi | 5.0 / API 21 | Instalación final y paquetes recuperados; cierre JNI pendiente |
 
 El instalador valida los **hashes exactos** de estas copias. Otro XAPK de la misma versión podría incluir componentes de otra arquitectura o densidad y será rechazado. No cambies hashes para saltarte una comprobación: revisa primero la procedencia y el conjunto, o sigue el procedimiento manual con las herramientas oficiales.
 
@@ -94,7 +139,7 @@ Si Android informa de incompatibilidad de firma, versión o SDK, conserva el err
 - [SDK, arquitecturas, firmas y alcance de las pruebas](docs/compatibilidad.md).
 - **No hay funciones para flashear ROMs, modificar APK, obtener root o eludir licencias.**
 - El mínimo de Android depende del APK concreto; `targetSdkVersion` no es `minSdkVersion`.
-- Una apertura correcta no confirma todavía conexión con el adaptador, cobertura de vehículos o todas las funciones nativas. Los permisos se comprueban según la versión de Android.
+- La apertura y el reconocimiento de paquetes no certifican cobertura de todos los vehículos o estabilidad de todas las funciones nativas. Los permisos se comprueban según la versión de Android.
 - La lectura del vehículo debe probarse por separado. No ejecutar borrado de DTC, EVAP modo 8, activaciones, resets, codificación o programación sin autorización específica.
 
 ## Pruebas del instalador

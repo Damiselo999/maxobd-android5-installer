@@ -12,3 +12,16 @@ __pycache__/
 .venv/
 .env
 .DS_Store
+
+# Binarios del fabricante y datos generados: obtenerlos con paquetes_maxobd.py.
+*.bin
+*.BIN
+*.so
+*.ab
+*.part
+datos-locales/
+archivos_android/
+respaldo*/
+*_privado.*
+*_privada.*
+*.env

@@ -2,7 +2,7 @@
   "package": "com.jiawei.maxobd",
   "reference_date": "2026-11-16",
   "certificate_sha256_observed": "6888cf4291a9ad3adba50160bd69fba7d322317a5566e01c081a953b9f9773eb",
-  "provenance": "Hashes de los componentes originales de copias XAPK aportadas por el usuario desde APKPure. No son una certificación independiente del editor.",
+  "provenance": "Hashes de componentes originales de copias XAPK obtenidas de APKPure durante el caso. No son una certificación independiente del editor.",
   "profiles": [
     {
       "version_name": "1.0.30",
@@ -10,7 +10,7 @@
       "min_sdk": 21,
       "abi": "arm64-v8a",
       "density": "xxhdpi",
-      "validation": "Inicio, interfaz y búsqueda BLE probados en Lenovo TAB 2 A8-50F-YZ-A, Android 5.1/API22. Comunicación OBD pendiente.",
+      "validation": "Inicio, interfaz y BLE probados en Lenovo Android 5.1. En seguimiento con vehículo hubo cierres JNI; completar splits no los corrige.",
       "sha256": {
         "com.jiawei.maxobd.apk": "6218be5aafd945828d1d7be143ad47f1db48e17b60ace886f6ddfab1c7aea073",
         "config.arm64_v8a.apk": "425a9924b36eb0a763ab28437bed7a529afde0b263c1fedaaf462f97d14b8b29",
@@ -28,6 +28,19 @@
         "com.jiawei.maxobd.apk": "f1460f3d4ed90b28ab3bb3e32c71adf864be84ce031fdc0049a911cb50c61288",
         "config.armeabi_v7a.apk": "9f00f5f1d03d8841ef38e966e1334157a5597aa0bf71602f04ecc370460ea803",
         "config.hdpi.apk": "26c9791aa4205d443df43f6747d283a486e69e239de6999c66d580291f7a1e44"
+      }
+    },
+    {
+      "version_name": "1.1.01",
+      "version_code": 57,
+      "min_sdk": 21,
+      "abi": "armeabi-v7a",
+      "density": "hdpi",
+      "validation": "Instalada y probada en Lenovo Android 5.1. Paquetes originales copiados; menú Nissan reconocido. Persiste cierre interno JNI en uso. No se declara estabilidad completa.",
+      "sha256": {
+        "com.jiawei.maxobd.apk": "50b7285ff08a3314ae24050a6cf47e687df09f7240e76d74bc55a0581e42b910",
+        "config.armeabi_v7a.apk": "3249c8d6f7765c20d3b3f50d0e0eeec5c6285bdc223f3e5b99d3de3479404a40",
+        "config.hdpi.apk": "bc6dbf24bd44830b4168f3b7b5298aa79f72f06a03214de5213ab82a6b14e06b"
       }
     }
   ]

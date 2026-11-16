@@ -4,8 +4,10 @@ El alcance Android 5.0+ describe el mínimo declarado por los APK examinados, no
 
 | Perfil | minSdk | targetSdk | ABI del componente | Prueba en dispositivo |
 |---|---|---|---|---|
-| 1.0.30 / código 46 / xxhdpi | 21 | 35 | arm64-v8a | Lenovo TAB 2 A8-50F-YZ-A con API22: inicio, interfaz y búsqueda BLE |
+| 1.0.30 / código 46 / xxhdpi | 21 | 35 | arm64-v8a | Lenovo TAB 2 A8-50F-YZ-A con API 22: inicio, interfaz y búsqueda BLE |
 | 1.0.29 / código 44 / hdpi | 21 | 35 | armeabi-v7a | Ninguna; solo se inspeccionaron los archivos |
+| 1.1.01 / código 57 / hdpi | 21 | 36 | armeabi-v7a | Instalación final, paquetes copiados y Nissan reconocido; cierre JNI pendiente |
+| 1.1.04 / código 60 examinado | 24 | 36 | No se instaló | No compatible con API 22; no se modificó minSdk |
 
 Un dispositivo ARM64 no necesariamente permite aplicaciones de 32 bits. El instalador consulta la lista ABI del sistema y exige la arquitectura del conjunto que se va a instalar. No deduce soporte por el nombre comercial del procesador.
 
@@ -25,15 +27,15 @@ La huella se observó en las copias aportadas desde APKPure. No constituye una c
 
 ## Permisos y conexión
 
-Android 5.1 otorgaba al paquete permisos de Bluetooth clásico, ubicación, Internet y almacenamiento. Los permisos de versiones recientes, como BLUETOOTH_SCAN y BLUETOOTH_CONNECT, no existen en API22 y no se intentan forzar. En otros Android, revisa los permisos de Bluetooth/dispositivos cercanos o ubicación que correspondan al sistema y a la aplicación.
+Android 5.1 otorgaba al paquete permisos de Bluetooth clásico, ubicación, Internet y almacenamiento. Los permisos de versiones recientes, como BLUETOOTH_SCAN y BLUETOOTH_CONNECT, no existen en API 22 y no se intentan forzar. En otros Android, revisa los permisos de Bluetooth/dispositivos cercanos o ubicación que correspondan al sistema y a la aplicación.
 
-Tener Bluetooth LE no confirma el protocolo de un modelo concreto de adaptador ni la comunicación con ECU. En el caso original esa prueba está pendiente. USB en este proyecto se utiliza para ADB entre la computadora y la tableta; no demuestra soporte de un adaptador OBD USB.
+Tener Bluetooth LE no confirma el protocolo de un modelo concreto de adaptador ni la comunicación con ECU. El seguimiento posterior con el MAXOBD Scanner y el Sentra 2019 consta en [seguimiento](seguimiento.md); hubo cierres nativos y no se certifica cobertura completa. USB se utiliza aquí para ADB entre computadora y tableta, no para un adaptador OBD USB.
 
 ## Casos que requieren otro diagnóstico
 
 - Un APK cuyo minSdk sea mayor que el Android instalado.
 - `UnsatisfiedLinkError`, símbolos nativos ausentes, errores de WebView o licencias.
 - Un cierre que continúe teniendo instalados todos los componentes correctos.
-- Un conjunto de la misma versión con hashes/ABI/densidad diferentes a los dos perfiles registrados.
+- Un conjunto de la misma versión con hashes/ABI/densidad diferentes a los tres perfiles registrados.
 
 No edites minSdk, firmas o controles de licencia. Un reinicio de fábrica o un cambio de ROM no se justifican por este error de recursos sin investigar primero la instalación completa.

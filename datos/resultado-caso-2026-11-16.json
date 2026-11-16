@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-16",
+  "device_model": "Lenovo TAB 2 A8-50F-YZ-A",
+  "android": "5.1",
+  "sdk": 22,
+  "app_version": "1.1.01",
+  "app_code": 57,
+  "abi": "armeabi-v7a",
+  "groups": 19,
+  "downloaded_files_verified_md5_sha256": 2875,
+  "total_bytes": 907211045,
+  "tablet_expected_files": 2875,
+  "tablet_present_files": 2875,
+  "tablet_matching_sizes": 2875,
+  "tablet_md5_samples": [
+    {
+      "car": "BMW、MINI、Rolls-Royce",
+      "file": "bmwdata/es/KONNWEI_BMW_FAULT_TS_ES.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "GM、Chevrolet、Buick、Cadillac、GMC、Pontiac、Saturn、Hummer、Holden",
+      "file": "gm/es/KONNWEI_GM_FAULT_TH_ES.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "NISSAN、INFINITI",
+      "file": "nissan/folder/KONNWEI_NISSAN_FOLDER_TEXT_3.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "BENZ、Maybach",
+      "file": "benz/folder/BZT_202.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "VW、Audi、Bentley、Lambo、bugatti、seat、SKODA",
+      "file": "vwdata/folder/KONNWEI_VW_AUDI_TEXT13.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "OBD",
+      "file": "obd/es/xx_string_es.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "Ford、LINCOLN、Mercury",
+      "file": "forddata/folder/DS_Privilege.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "HONDA、Acura",
+      "file": "hondadata/es/KW_HD_FAULT_TS_ES.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "Mazda",
+      "file": "mazda/folder/MZD_7.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "Toyota、Lexus",
+      "file": "toyota/jp/TYB_588.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "oilreset",
+      "file": "oilreset/folder/OIL_33.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "MITSUBISHI",
+      "file": "mitsubishi/folder/MTS_113.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "SUBARU",
+      "file": "subaru/folder/SBR_3.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "SUZUKI",
+      "file": "suzuki/folder/SZK_23.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "VAZ",
+      "file": "vaz/folder/VAZ_4.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "Hyundai",
+      "file": "hyundaidata/es/KW_HD_TCS_2_ES.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "Opel",
+      "file": "opel/es/KW_OP_TCS_2_ES.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "Renault、SAMSUNG、DACIA",
+      "file": "renault/es/KW_RN_TCS_ES.BIN",
+      "md5_matches": true
+    },
+    {
+      "car": "Kia",
+      "file": "kia/folder/KW_KIA_2.BIN",
+      "md5_matches": true
+    }
+  ],
+  "validation_limit": "Presencia y tamaño de todos los archivos; una muestra MD5 por grupo en la tableta. No se verificó cada marca con su vehículo."
+}

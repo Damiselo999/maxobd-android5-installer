@@ -1,5 +1,7 @@
 # Diagnóstico comprobado
 
+**Contexto histórico:** este documento registra la reparación inicial del arranque. Después se probó con el vehículo, se recuperaron los paquetes y se registró un cierre interno distinto que sigue pendiente. Consulta el [seguimiento completo](seguimiento.md); la ausencia de errores citada abajo solo corresponde a la ventana inicial de prueba.
+
 Fecha: 16 de noviembre de 2026. Dispositivo: Lenovo TAB 2 A8-50F-YZ-A, Android 5.1/API 22, kernel 3.10.65, ABI principal arm64-v8a. No se publican los logs completos del dispositivo.
 
 ## Antes
@@ -59,4 +61,4 @@ Para repetir el diagnóstico en Android 5.1 se pueden usar buffers compatibles, 
 adb -s SERIAL logcat -v threadtime -b main -b system
 ```
 
-Inicia esa captura antes de abrir la aplicación y detenla con Ctrl+C después del fallo o de la prueba. Guardar un recurso `v24` en el base no demuestra por sí solo que el conjunto completo requiera API24: hay que inspeccionar también los componentes.
+Inicia esa captura antes de abrir la aplicación y detenla con Ctrl+C después del fallo o de la prueba. Guardar un recurso `v24` en el base no demuestra por sí solo que el conjunto completo requiera API 24: hay que inspeccionar también los componentes.
